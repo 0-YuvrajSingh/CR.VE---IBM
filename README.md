@@ -1,15 +1,59 @@
-# Food Delivery App Front-End React JS Project
+# 🍽️ CR.VE - IBM
 
-- Smooth Scrolling
-- Smooth animations and effects
-- Change Menu Category
-- Add to cart & Remove from cart
-- View Cart
-- Proceed to payment
-- Website fully responsive
+A modern, responsive frontend food ordering website built using **React.js** and **Vite**.  
+This project simulates a real-world food delivery platform with features like menu browsing, cart management, and a polished UI.
 
-<img src='./screenshots/5.png'>
-<img src='./screenshots/1.png'>
-<img src='./screenshots/2.png'>
-<img src='./screenshots/3.png'>
-<img src='./screenshots/4.png'>
+---
+
+## 🚀 Features
+
+- 🧭 Explore categorized menus  
+- 🛒 Add/remove items to/from cart  
+- 📱 Mobile-first responsive design  
+- ⚛️ Built with React.js + Vite  
+- 🎨 Styled with modern CSS  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, Vite, CSS, HTML  
+- **Languages:** JavaScript (ES6+)  
+- **Version Control:** Git + GitHub  
+
+---
+
+## 📂 Project Structure
+
+CR.VE-IBM/
+├── public/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── assets/
+│ └── main.jsx
+├── .gitignore
+├── package.json
+└── vite.config.js
+
+
+---
+
+## 🖼️ Screenshots
+
+_Add screenshots here (coming soon)._  
+📁 Stored in: `screenshots/1.png` to `screenshots/5.png`
+
+---
+
+## 📦 Setup Instructions
+
+To run the project locally:
+
+```bash
+npm install
+npm run dev
+
+
+👨‍💻 Developed By
+Yuvraj Singh
