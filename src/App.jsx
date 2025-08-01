@@ -16,6 +16,7 @@ const App = () => {
   return (
     <>
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
+      
       <div className="app">
         <Navbar setShowLogin={setShowLogin} />
         <Routes>
@@ -24,8 +25,9 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<PlaceOrder />} />
         </Routes>
-        <Footer />
+    
       </div>
+      <Footer />
     </>
   );
 };
