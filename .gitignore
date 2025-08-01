@@ -1,4 +1,6 @@
+# -------------------------
 # Logs
+# -------------------------
 logs
 *.log
 npm-debug.log*
@@ -7,16 +9,44 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# -------------------------
+# Dependencies
+# -------------------------
+node_modules/
+
+# -------------------------
+# Build Output
+# -------------------------
+dist/
+dist-ssr/
+build/
+
+# -------------------------
+# Environment Variables
+# -------------------------
+.env
+.env.local
+.env.*.local
 *.local
 
-# Editor directories and files
+# -------------------------
+# Firebase / Expo
+# -------------------------
+.firebase/
+.firebaserc
+.expo/
+
+# -------------------------
+# System Files
+# -------------------------
+.DS_Store
+
+# -------------------------
+# Editor Settings
+# -------------------------
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
