@@ -80,7 +80,7 @@ header {
   }
 }
 .dot {
-  color: var(--primary);
+  color: var(--white);
   text-shadow: 0 0 5px var(--primary);
   font-weight: bold;
 }
