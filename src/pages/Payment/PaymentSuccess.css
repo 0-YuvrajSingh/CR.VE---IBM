@@ -1,0 +1,34 @@
+.payment-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.success-box {
+  padding: 30px 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.success-box h2 {
+  color: #27ae60;
+  margin-bottom: 10px;
+}
+
+.success-box p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.success-box button {
+  padding: 10px 20px;
+  background-color: #ff643d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

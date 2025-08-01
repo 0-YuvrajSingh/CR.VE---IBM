@@ -1,0 +1,52 @@
+.fake-payment {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.fake-payment > div {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.fake-payment h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.fake-payment .summary p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #555;
+}
+
+.fake-payment .summary h3 {
+  font-size: 20px;
+  margin: 20px 0;
+  color: #111;
+}
+
+.fake-payment button {
+  background-color: #ff5c00;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.fake-payment button:hover {
+  background-color: #e14c00;
+}
