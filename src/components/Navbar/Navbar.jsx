@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import { AuthContext } from "../../context/AuthContext";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
-import { Link } from "react-router-dom";
 
 const Navbar = ({ setShowLogin }) => {
   const { getTotalQuantity } = useContext(StoreContext);
   const { user, logout } = useContext(AuthContext);
   const totalQuantity = getTotalQuantity();
-  const [menu, setMenu] = useState("home");
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <div className="navbar">
@@ -18,9 +20,13 @@ const Navbar = ({ setShowLogin }) => {
       </Link>
 
       <ul className="navbar-menu">
-        <Link to="/" onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>Home</Link>
-        <Link to="/menu" onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>Menu</Link>
-        <a href="#footer" onClick={() => setMenu("contact-us")} className={menu === "contact-us" ? "active" : ""}>Contact Us</a>
+        <Link to="/" className={isActive("/") ? "active" : ""}>
+          Home
+        </Link>
+        <Link to="/menu" className={isActive("/menu") ? "active" : ""}>
+          Menu
+        </Link>
+        <a href="#footer">Contact Us</a>
       </ul>
 
       <div className="navbar-right">
@@ -35,7 +41,9 @@ const Navbar = ({ setShowLogin }) => {
 
         {user ? (
           <>
-            <span style={{ marginRight: "10px", fontWeight: "bold" }}>{user.email.split("@")[0]}</span>
+            <span style={{ marginRight: "10px", fontWeight: "bold" }}>
+              {user.email.split("@")[0]}
+            </span>
             <button onClick={logout}>Logout</button>
           </>
         ) : (

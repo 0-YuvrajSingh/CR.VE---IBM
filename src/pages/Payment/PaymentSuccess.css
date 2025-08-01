@@ -1,34 +1,63 @@
 .payment-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5); /* dimmed background */
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 80vh;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* optional blur */
 }
 
 .success-box {
-  padding: 30px 40px;
   background-color: #fff;
+  padding: 40px 50px;
   border-radius: 20px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   text-align: center;
+  animation: fadeIn 0.3s ease;
+  max-width: 400px;
+  width: 90%;
 }
 
 .success-box h2 {
   color: #27ae60;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 24px;
 }
 
 .success-box p {
-  margin-bottom: 20px;
   color: #555;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .success-box button {
-  padding: 10px 20px;
+  padding: 10px 24px;
   background-color: #ff643d;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.success-box button:hover {
+  background-color: #e5542f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

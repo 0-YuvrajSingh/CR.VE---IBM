@@ -1,25 +1,57 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StoreContext } from "../../context/StoreContext";
-import "./PlaceOrder.css";
 import { deliveryFee } from "../Cart/Cart";
 import { useNavigate } from "react-router-dom";
+import "./PlaceOrder.css";
 
 const PlaceOrder = () => {
   const { getTotalCartAmount } = useContext(StoreContext);
   const navigate = useNavigate();
 
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "",
+    phone: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!form.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
+      newErrors.email = "Valid email is required";
+    if (!form.street.trim()) newErrors.street = "Street is required";
+    if (!form.city.trim()) newErrors.city = "City is required";
+    if (!form.state.trim()) newErrors.state = "State is required";
+    if (!form.zip.trim()) newErrors.zip = "ZIP code is required";
+    if (!form.country.trim()) newErrors.country = "Country is required";
+    if (!form.phone.trim() || !/^\d{10}$/.test(form.phone))
+      newErrors.phone = "Valid 10-digit phone is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handlePayment = () => {
+    if (!validateForm()) return;
+
     const subtotal = getTotalCartAmount();
     const delivery = subtotal === 0 ? 0 : deliveryFee;
     const total = subtotal + delivery;
 
-    // Store order summary temporarily
     localStorage.setItem(
       "orderSummary",
       JSON.stringify({ subtotal, delivery, total })
     );
 
-    // Navigate to mock payment screen
     navigate("/checkout");
   };
 
@@ -27,21 +59,96 @@ const PlaceOrder = () => {
     <form className="place-order">
       <div className="place-order-left">
         <h2 className="title">Delivery Information</h2>
+
         <div className="multi-fields">
-          <input type="text" placeholder="First Name" required />
-          <input type="text" placeholder="Last Name" required />
+          <div style={{ width: "100%" }}>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={form.firstName}
+              onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+            />
+            {errors.firstName && <span className="error">{errors.firstName}</span>}
+          </div>
+
+          <div style={{ width: "100%" }}>
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={form.lastName}
+              onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+            />
+            {errors.lastName && <span className="error">{errors.lastName}</span>}
+          </div>
         </div>
-        <input type="email" placeholder="Email Address" required />
-        <input type="text" placeholder="Street" required />
+
+        <input
+          type="email"
+          placeholder="Email Address"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        {errors.email && <span className="error">{errors.email}</span>}
+
+        <input
+          type="text"
+          placeholder="Street"
+          value={form.street}
+          onChange={(e) => setForm({ ...form, street: e.target.value })}
+        />
+        {errors.street && <span className="error">{errors.street}</span>}
+
         <div className="multi-fields">
-          <input type="text" placeholder="City" required />
-          <input type="text" placeholder="State" required />
+          <div style={{ width: "100%" }}>
+            <input
+              type="text"
+              placeholder="City"
+              value={form.city}
+              onChange={(e) => setForm({ ...form, city: e.target.value })}
+            />
+            {errors.city && <span className="error">{errors.city}</span>}
+          </div>
+
+          <div style={{ width: "100%" }}>
+            <input
+              type="text"
+              placeholder="State"
+              value={form.state}
+              onChange={(e) => setForm({ ...form, state: e.target.value })}
+            />
+            {errors.state && <span className="error">{errors.state}</span>}
+          </div>
         </div>
+
         <div className="multi-fields">
-          <input type="number" placeholder="Zip Code" required />
-          <input type="text" placeholder="Country" required />
+          <div style={{ width: "100%" }}>
+            <input
+              type="number"
+              placeholder="Zip Code"
+              value={form.zip}
+              onChange={(e) => setForm({ ...form, zip: e.target.value })}
+            />
+            {errors.zip && <span className="error">{errors.zip}</span>}
+          </div>
+
+          <div style={{ width: "100%" }}>
+            <input
+              type="text"
+              placeholder="Country"
+              value={form.country}
+              onChange={(e) => setForm({ ...form, country: e.target.value })}
+            />
+            {errors.country && <span className="error">{errors.country}</span>}
+          </div>
         </div>
-        <input type="number" placeholder="Phone" required />
+
+        <input
+          type="number"
+          placeholder="Phone"
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+        />
+        {errors.phone && <span className="error">{errors.phone}</span>}
       </div>
 
       <div className="place-order-right">
@@ -55,7 +162,9 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${getTotalCartAmount() === 0 ? "0.00" : deliveryFee.toFixed(2)}</p>
+              <p>
+                ${getTotalCartAmount() === 0 ? "0.00" : deliveryFee.toFixed(2)}
+              </p>
             </div>
             <hr />
             <div className="cart-total-details">

@@ -21,13 +21,15 @@ const FakePayment = () => {
 
   return (
     <div className="fake-payment">
-      <h2>Payment Gateway (Mock)</h2>
-      <div className="summary">
-        <p>Subtotal: ${summary.subtotal.toFixed(2)}</p>
-        <p>Delivery: ${summary.delivery.toFixed(2)}</p>
-        <h3>Total: ${summary.total.toFixed(2)}</h3>
+      <div className="fake-payment-container">
+        <h2>💳 Payment Gateway (Mock)</h2>
+        <div className="summary">
+          <p>Subtotal: ${summary.subtotal.toFixed(2)}</p>
+          <p>Delivery: ${summary.delivery.toFixed(2)}</p>
+          <h3>Total: ${summary.total.toFixed(2)}</h3>
+        </div>
+        <button onClick={handlePayment}>Pay Now</button>
       </div>
-      <button onClick={handlePayment}>Pay Now</button>
     </div>
   );
 };
