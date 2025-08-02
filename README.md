@@ -1,50 +1,89 @@
 # 🍽️ CR.VE - IBM
 
-A modern, responsive frontend food ordering website built using **React.js** and **Vite**. 
-This project simulates a real-world food delivery platform with features like menu Browse, cart management, and a polished UI.
+A modern and responsive frontend food ordering website built using **React.js** and **Vite**.  
+It simulates a real-world food delivery platform with features like browsing categorized menus, managing a cart, placing orders, and user authentication — all within a seamless SPA experience.
+
+🔗 **Live Demo:** [cr-ve-ibm.vercel.app](https://cr-ve-ibm.vercel.app)  
+🔗 **GitHub Repo:** [Food-Ordering-Website](https://github.com/0-YuvrajSingh/Food-Ordering-Website)
 
 ---
 
 ## 🚀 Features
 
-- 🧭 Explore categorized menus  
-- 🛒 Add/remove items to/from cart  
-- 📱 Mobile-first responsive design  
-- ⚛️ Built with React.js + Vite  
-- 🎨 Styled with modern CSS  
+- 🔐 Firebase Authentication (Login / Signup)
+- 🧭 Explore food categories
+- 🛒 Add/remove/update items in cart
+- 📦 Place Order simulation with fake payment
+- 🧩 SPA routing with React Router DOM
+- 🔄 Cart state saved via localStorage
+- 📱 Mobile responsive UI using custom CSS
+- ⚡ Fast development environment with Vite
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Vite, CSS, HTML  
-- **Languages:** JavaScript (ES6+)  
-- **Version Control:** Git + GitHub  
+- **Frontend Framework:** React.js  
+- **Build Tool:** Vite  
+- **Authentication:** Firebase  
+- **Routing:** React Router DOM  
+- **Styling:** CSS3 + Media Queries  
+- **Persistence:** React Hooks, Local Storage  
+- **Version Control:** Git & GitHub  
+- **Language:** JavaScript (ES6+)
+
+
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-CR.VE-IBM
-├── public
-├── screenshots
-└── src
-    ├── assets
-    ├── components
+```bash
+📁 Food-Ordering-Website
+├── .env
+├── .eslintrc.cjs
+├── .gitignore
+├── generateTree.js
+├── index.html
+├── LICENSE.txt
+├── package-lock.json
+├── package.json
+├── README.md
+├── vite.config.js
+├── 📁 public
+│   └── header_img.png
+├── 📁 screenshots
+│   ├── home_page.png
+│   ├── menu.png
+│   ├── cart.png
+│   ├── checkout.png
+│   └── sign_up.png
+└── 📁 src
+    ├── App.jsx
+    ├── index.css
+    ├── main.jsx
+    ├── firebase.js
+    ├── 📁 assets
+    ├── 📁 components
     │   ├── ExploreMenu
     │   ├── FoodDisplay
     │   ├── FoodItem
     │   ├── Footer
     │   ├── Header
     │   ├── LoginPopup
-    │   └── Navbar
-    ├── context
-    └── pages
+    │   ├── Navbar
+    │   ├── PrivateRoute.jsx
+    │   └── UserMenu.jsx
+    ├── 📁 context
+    │   ├── AuthContext.jsx
+    │   └── StoreContext.jsx
+    └── 📁 pages
         ├── Cart
         ├── Home
         ├── Menu
+        ├── Payment
         └── PlaceOrder
-
+```
 ---
 
 ## 🖼️ Screenshots
@@ -59,17 +98,11 @@ Here are some key views of the application:
 ### Menu
 [![Menu](screenshots/menu.png)](screenshots/menu.png)
 
-### Food Items
-[![Food Items](screenshots/food_items.png)](screenshots/food_items.png)
-
 ### Cart
 [![Cart](screenshots/cart.png)](screenshots/cart.png)
 
 ### Checkout
 [![Checkout](screenshots/checkout.png)](screenshots/checkout.png)
-
-### About Us
-[![About Us](screenshots/about_us.png)](screenshots/about_us.png)
 
 ### Sign Up
 [![Sign Up](screenshots/sign_up.png)](screenshots/sign_up.png)
@@ -132,5 +165,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## 👨‍💻 Developed By
 
 Yuvraj Singh
-
 ---
